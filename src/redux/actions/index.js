@@ -1,5 +1,6 @@
 export const SET_CURRENT_SONG = "SET_CURRENT_SONG";
 export const SET_MUSIC = "SET_MUSIC";
+export const SET_FAVORITE = "SET_FAVORITE";
 
 export const setCurrentSong = (song) => ({
   type: SET_CURRENT_SONG,
@@ -11,7 +12,6 @@ export const setMusic = (artist, songs) => ({
   payload: { artist, songs },
 });
 
-export const SET_FAVORITE = "SET_FAVORITE";
 export const setFavorite = (songId) => ({
   type: SET_FAVORITE,
   payload: songId,

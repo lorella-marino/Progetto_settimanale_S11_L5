@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import Playlist from "./Playlist";
+import YourLibrary from "./YourLibrary"; // <-- Importa YourLibrary
 import { Col, Container, Row } from "react-bootstrap";
 import Player from "./Player";
 
-const MainSection = () => {
+const MainSection = ({ showLibrary }) => {
   const music = useSelector((state) => state.music);
 
   return (
@@ -18,10 +19,11 @@ const MainSection = () => {
             <a href="#">DISCOVER</a>
           </Col>
         </Row>
-        <Playlist music={music} />
+        {showLibrary ? <YourLibrary /> : <Playlist music={music} />} {/* <-- Switch tra Playlist e YourLibrary */}
         <Player />
       </Container>
     </div>
   );
 };
+
 export default MainSection;

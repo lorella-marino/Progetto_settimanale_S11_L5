@@ -5,13 +5,12 @@ const Player = () => {
   const currentSong = useSelector((state) => state.music.currentSong);
 
   return (
-    <Container fluid className="fixed-bottom bg-container pt-1" style={{ zIndex: 1 }}>
+    <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="h-100">
-        <Col lg={2}></Col>
-        <Col lg={10}>
-          <Row className="h-100 justify-content-between align-items-center">
+        <Col lg={10} className="offset-lg-2">
+          <Row xs={2} className="h-100  justify-content-center align-items-center">
             {currentSong && (
-              <Col xs={2} className="d-flex align-items-center justify-content-center">
+              <Col xs={6} md={4} className="d-flex justify-content-center">
                 <img src={currentSong.album.cover_medium} alt="track" width="50" height="50" />
                 <p className="ms-2 text-white">
                   {currentSong.title} <br /> {currentSong.artist.name.toUpperCase()}

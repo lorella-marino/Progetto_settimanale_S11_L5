@@ -27,6 +27,7 @@ const Playlist = ({ music }) => {
                         favoriteSongs.includes(song.id) ? "bi-heart-fill text-success" : "bi-heart"
                       }`}
                       style={{
+                        fontSize: "1.5rem",
                         color: favoriteSongs.includes(song.id) ? "rgb(60, 211, 60)" : "rgb(60, 211, 60)",
                       }}
                       onClick={(e) => {

@@ -1,29 +1,31 @@
+import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./index.css";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "./components/Sidebar";
 import { fetchMusic } from "./redux/actions";
 import MainSection from "./components/MainSection";
-import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
+  const [showLibrary, setShowLibrary] = useState(false); // <-- Stato per controllare la vista
+
   useEffect(() => {
     dispatch(fetchMusic("Queen"));
-    dispatch(fetchMusic("Beatles"));
-    dispatch(fetchMusic("Led Zeppelin"));
+    dispatch(fetchMusic("Bruno Mars"));
+    dispatch(fetchMusic("Jovanotti"));
   }, [dispatch]);
 
   return (
     <Container fluid>
       <Row>
         <Col md={2} className="p-0">
-          <Sidebar />
+          <Sidebar setShowLibrary={setShowLibrary} /> {/* <-- Passa la funzione */}
         </Col>
         <Col md={10} className="p-0">
-          <MainSection />
+          <MainSection showLibrary={showLibrary} /> {/* <-- Passa lo stato */}
         </Col>
       </Row>
     </Container>

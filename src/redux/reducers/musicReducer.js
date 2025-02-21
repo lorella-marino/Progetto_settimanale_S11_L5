@@ -21,13 +21,24 @@ const musicReducer = (state = initialState, action) => {
         ...state,
         currentSong: action.payload,
       };
-    case SET_FAVORITE:
+    case SET_FAVORITE: {
+      const currentFavorites = Array.isArray(state.favorites) ? state.favorites : [];
+      const updatedFavorites = currentFavorites.includes(action.payload)
+        ? currentFavorites.filter((id) => id !== action.payload)
+        : [...currentFavorites, action.payload];
+
+      try {
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      } catch (error) {
+        console.error("Errore nel salvataggio dei preferiti:", error);
+      }
+
       return {
         ...state,
-        favorites: state.favorites.includes(action.payload)
-          ? state.favorites.filter((id) => id !== action.payload)
-          : [...state.favorites, action.payload],
+        favorites: updatedFavorites,
       };
+    }
+
     default:
       return state;
   }
