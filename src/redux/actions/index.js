@@ -11,6 +11,12 @@ export const setMusic = (artist, songs) => ({
   payload: { artist, songs },
 });
 
+export const SET_FAVORITE = "SET_FAVORITE";
+export const setFavorite = (songId) => ({
+  type: SET_FAVORITE,
+  payload: songId,
+});
+
 export const fetchMusic = (artist) => async (dispatch) => {
   try {
     let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist}`);

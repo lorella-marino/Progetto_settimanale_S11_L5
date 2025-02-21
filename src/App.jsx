@@ -11,9 +11,9 @@ import { useEffect } from "react";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMusic("queen"));
-    dispatch(fetchMusic("katyperry"));
-    dispatch(fetchMusic("eminem"));
+    dispatch(fetchMusic("Queen"));
+    dispatch(fetchMusic("Beatles"));
+    dispatch(fetchMusic("Led Zeppelin"));
   }, [dispatch]);
 
   return (
