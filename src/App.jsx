@@ -6,15 +6,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "./components/Sidebar";
 import { fetchMusic } from "./redux/actions";
 import MainSection from "./components/MainSection";
-import Player from "./components/Player";
 import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMusic("queen", "rock"));
-    dispatch(fetchMusic("katyperry", "pop"));
-    dispatch(fetchMusic("eminem", "hiphop"));
+    dispatch(fetchMusic("queen"));
+    dispatch(fetchMusic("katyperry"));
+    dispatch(fetchMusic("eminem"));
   }, [dispatch]);
 
   return (
@@ -27,7 +26,6 @@ function App() {
           <MainSection />
         </Col>
       </Row>
-      <Player />
     </Container>
   );
 }

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Playlist from "./Playlist";
 import { Col, Container, Row } from "react-bootstrap";
+import Player from "./Player";
 
 const MainSection = () => {
   const music = useSelector((state) => state.music);
@@ -18,6 +19,7 @@ const MainSection = () => {
           </Col>
         </Row>
         <Playlist music={music} />
+        <Player />
       </Container>
     </div>
   );

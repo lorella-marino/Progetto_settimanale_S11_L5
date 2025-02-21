@@ -1,9 +1,8 @@
-export const SET_MUSIC = "SET_MUSIC";
+import { SET_CURRENT_SONG, SET_MUSIC } from "../actions";
 
 const initialState = {
-  rock: [],
-  pop: [],
-  hiphop: [],
+  playlists: {},
+  currentSong: null,
 };
 
 const musicReducer = (state = initialState, action) => {
@@ -11,7 +10,15 @@ const musicReducer = (state = initialState, action) => {
     case SET_MUSIC:
       return {
         ...state,
-        [action.payload.section]: action.payload.songs,
+        playlists: {
+          ...state.playlists,
+          [action.payload.artist]: action.payload.songs,
+        },
+      };
+    case SET_CURRENT_SONG:
+      return {
+        ...state,
+        currentSong: action.payload,
       };
     default:
       return state;

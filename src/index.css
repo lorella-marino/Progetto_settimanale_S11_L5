@@ -77,10 +77,6 @@ body {
   background-color: white;
 }
 
-#sidebar {
-  z-index: 3000;
-}
-
 @media screen and (max-width: 936px) {
   #sidebar {
     display: none;
